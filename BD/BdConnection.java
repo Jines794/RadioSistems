@@ -58,7 +58,7 @@ public final class BdConnection {
 
     //Permet d'obtenir une connexion à la base de données
     public static Connection getConnexion() {
-        if (con == null) {
+        if (con == null || con.isClosed()) {
             try {
                 Class.forName("oracle.jdbc.OracleDriver");
                 con = DriverManager.getConnection("jdbc:oracle:thin:@im2ag-oracle.e.ujf-grenoble.fr:1521:im2ag", "vagneurf", "c64c79f9ad");
